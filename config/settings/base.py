@@ -2,10 +2,14 @@
 Base settings to build other settings files upon.
 """
 from pathlib import Path
-
+import os
 import environ
+import dj_database_url
+
 
 ROOT_DIR = Path(__file__).parents[2]
+BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+
 # conciente/)
 APPS_DIR = ROOT_DIR / "conciente"
 env = environ.Env()
@@ -40,7 +44,12 @@ LOCALE_PATHS = [str(ROOT_DIR / "locale")]
 # DATABASES
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#databases
-DATABASES = {"default": env.db("DATABASE_URL")}
+DATABASES = {
+   'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
+}
 DATABASES["default"]["ATOMIC_REQUESTS"] = True
 
 # URLS
@@ -49,6 +58,9 @@ DATABASES["default"]["ATOMIC_REQUESTS"] = True
 ROOT_URLCONF = "config.urls"
 # https://docs.djangoproject.com/en/dev/ref/settings/#wsgi-application
 WSGI_APPLICATION = "config.wsgi.application"
+
+DEBUG = False
+
 
 # APPS
 # ------------------------------------------------------------------------------
@@ -224,6 +236,9 @@ ADMIN_URL = "admin/"
 ADMINS = [("""Julio Ahuactzin""", "julio336@hotmail.com")]
 # https://docs.djangoproject.com/en/dev/ref/settings/#managers
 MANAGERS = ADMINS
+ALLOWED_HOSTS = ["localhost", "0.0.0.0", "127.0.0.1", ".herokuapp.com"]
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_env)
 
 # LOGGING
 # ------------------------------------------------------------------------------

@@ -16,6 +16,9 @@ framework.
 import os
 import sys
 from pathlib import Path
+from whitenoise.django import DjangoWhiteNoise
+application = DjangoWhiteNoise(application)
+
 
 from django.core.wsgi import get_wsgi_application
 
