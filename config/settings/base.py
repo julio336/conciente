@@ -4,7 +4,7 @@ Base settings to build other settings files upon.
 from pathlib import Path
 import os
 import environ
-import dj_database_url
+#import dj_database_url
 
 
 ROOT_DIR = Path(__file__).parents[2]
@@ -237,7 +237,7 @@ ADMINS = [("""Julio Ahuactzin""", "julio336@hotmail.com")]
 # https://docs.djangoproject.com/en/dev/ref/settings/#managers
 MANAGERS = ADMINS
 ALLOWED_HOSTS = ["localhost", "0.0.0.0", "127.0.0.1", ".herokuapp.com"]
-db_from_env = dj_database_url.config(conn_max_age=500)
+#db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(db_from_env)
 
 # LOGGING
