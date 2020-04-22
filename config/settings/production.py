@@ -89,6 +89,8 @@ EMAIL_SUBJECT_PREFIX = env(
 # ADMIN
 # ------------------------------------------------------------------------------
 # Django Admin URL regex.
+SECRET_KEY = env("DJANGO_SECRET_KEY")
+
 ADMIN_URL = env("DJANGO_ADMIN_URL")
 
 # Anymail
