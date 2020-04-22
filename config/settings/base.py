@@ -14,6 +14,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 APPS_DIR = ROOT_DIR / "conciente"
 env = environ.Env()
 
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_URL = "/static/"
+
 READ_DOT_ENV_FILE = env.bool("DJANGO_READ_DOT_ENV_FILE", default=False)
 if READ_DOT_ENV_FILE:
     # OS environment variables take precedence over variables from .env
