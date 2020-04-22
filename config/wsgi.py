@@ -16,7 +16,6 @@ framework.
 import os
 import sys
 from pathlib import Path
-from whitenoise.django import DjangoWhiteNoise
 
 
 from django.core.wsgi import get_wsgi_application
@@ -38,4 +37,3 @@ application = get_wsgi_application()
 # Apply WSGI middleware here.
 # from helloworld.wsgi import HelloWorldApplication
 # application = HelloWorldApplication(application)
-application = DjangoWhiteNoise(application)
