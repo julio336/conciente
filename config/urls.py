@@ -4,6 +4,8 @@ from django.contrib import admin
 from django.urls import include, path
 from django.views import defaults as default_views
 from django.views.generic import TemplateView
+from django.urls import path
+
 
 urlpatterns = [
     path("", TemplateView.as_view(template_name="pages/home.html"), name="home"),
@@ -28,6 +30,10 @@ if settings.DEBUG:
             default_views.bad_request,
             kwargs={"exception": Exception("Bad Request!")},
         ),
+        path(
+            'admin/', 
+            admin.site.urls,
+        ), 
         path(
             "403/",
             default_views.permission_denied,
