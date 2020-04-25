@@ -3,7 +3,8 @@ from django.contrib.auth import get_user_model
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse
 from django.utils.translation import ugettext_lazy as _
-from django.views.generic import DetailView, RedirectView, UpdateView
+from django.views.generic import DetailView, RedirectView, UpdateView, TemplateView, ListView
+
 
 User = get_user_model()
 
@@ -17,6 +18,13 @@ class UserDetailView(LoginRequiredMixin, DetailView):
 
 user_detail_view = UserDetailView.as_view()
 
+class Indice(ListView):
+    template_name = 'index.html'
+    model = User
+
+    def get_context_data(self, **kwargs):
+        context = super(Indice, self).get_context_data(**kwargs)
+        return context
 
 class UserUpdateView(LoginRequiredMixin, UpdateView):
 

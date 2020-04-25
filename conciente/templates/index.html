@@ -1,0 +1,135 @@
+{% extends 'base.html' %}
+
+
+{% block contenido %}
+
+<div id="index-banner" class="parallax-container">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <br><br><br>
+        <h1 style="margin-top:15%" class="header center teal-text text-lighten-2">Psicologos para ti.
+        </h1>
+        <div class="row center">
+            <h5 class="header col s12 light">
+                Psicólogos de Puebla, Atlixco y Tehuacán.
+            </h5>
+        </div>
+    </div>
+    </div>
+    <div class="parallax"><img src="static/images/conciente_home_terapia_psicologia_2.jpg" alt="Unsplashed background img 1"></div>
+  </div>
+
+
+  <div class="container">
+    <div class="row center">
+        <h4>Calidez y comprensión humana
+            </h4>
+    </div>
+      <!--   Icon Section   -->
+    <div class="row">
+        {% for user in object_list|slice:"1:" %}
+            <div class="col s4">
+                <div class="card">
+                    <div class="card-image">
+                        <img src="/media/{{user.photo}}">  
+                        <span class="card-title">{{ user.name}} {{user.last_name}}</span>
+                    </div>
+                    <p class="cedula">
+                        Cédula: {{ user.cedula }}
+                    </p>
+                    <div class="card-content">
+                        <p><b>{{ user.speciality }}</b></p>
+                        <p>{{user.bio|slice:":100"}} ...</p>
+                    </div>
+                    <div class="card-action">
+                        <i class="small material-icons">insert_chart</i>
+                        <i class="small material-icons">settings_cell</i>
+                    </div>
+                    <div class="card-action">
+                        <a href="#">Ver mas</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+  </div>
+<div class="container">
+    <hr>
+    <div class="row center">
+        <h4>Tratamientos Psicológicos</h4>
+    </div>
+    <div class="row">
+        <div class="col s4">
+            <div class="card">
+                <div class="card-image">
+                        <img src="/static/images/tdah_home_conciente.jpg">  
+                        <span class="card-title">TDAH</span>
+                </div>
+                <div class="card-action">
+                        <a href="#">Ver mas</a>
+                </div>
+            </div>
+        </div>
+        <div class="col s4">
+            <div class="card">
+                <div class="card-image">
+                        <img src="/static/images/terapia_pareja_home_conciente.jpg">  
+                        <span class="card-title">Terapia de pareja</span>
+                </div>
+                <div class="card-action">
+                        <a href="#">Ver mas</a>
+                </div>
+            </div>
+        </div>
+        <div class="col s4">
+            <div class="card">
+                <div class="card-image">
+                    <img src="/static/images/depresion_home_conciente.jpg">  
+                    <span class="card-title">Depresión</span>
+                </div>
+                <div class="card-action">
+                        <a href="#">Ver mas</a>
+                </div>
+            </div>
+        </div>
+        <div class="col s4">
+            <div class="card">
+                <div class="card-image">
+                    <img src="/static/images/ansiedad_home_conciente.jpg">  
+                    <span class="card-title">Ansiedad</span>
+                </div>
+                <div class="card-action">
+                        <a href="#">Ver mas</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+  
+
+  <div class="parallax-container valign-wrapper">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <div class="row center">
+        </div>
+      </div>
+    </div>
+    <div class="parallax"><img src="static/images/imagen.jpeg" alt="Unsplashed background img 2"></div>
+  </div>
+
+  <div class="container">
+    <div class="section">
+
+      <div class="row">
+        <div class="col s12 center">
+          <h3><i class="mdi-content-send brown-text"></i></h3>
+          <h4>Contactanos</h4>
+          <p class="left-align light">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam scelerisque id nunc nec volutpat. Etiam pellentesque tristique arcu, non consequat magna fermentum ac. Cras ut ultricies eros. Maecenas eros justo, ullamcorper a sapien id, viverra ultrices eros. Morbi sem neque, posuere et pretium eget, bibendum sollicitudin lacus. Aliquam eleifend sollicitudin diam, eu mattis nisl maximus sed. Nulla imperdiet semper molestie. Morbi massa odio, condimentum sed ipsum ac, gravida ultrices erat. Nullam eget dignissim mauris, non tristique erat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  {% endblock contenido %}

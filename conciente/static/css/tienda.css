@@ -12,7 +12,7 @@ p {
 }
 
 .parallax-container {
-  min-height: 380px;
+  min-height: 450px;
   line-height: 0;
   height: auto;
   color: rgba(255,255,255,.9);
@@ -20,6 +20,13 @@ p {
   .parallax-container .section {
     width: 100%;
   }
+
+  .cedula {
+    color: rgba(0,150,137,.9);
+    font-size: 14px;
+    line-height: 1.75em;
+    text-align: center;
+}
 
 @media only screen and (max-width : 992px) {
   .parallax-container .section {
